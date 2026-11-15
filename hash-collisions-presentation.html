@@ -252,7 +252,10 @@ main:focus,.slide:focus{outline:none}
 #slide-02 .eyebrow{font-size:clamp(14px,1.1vw,18px)}
 #slide-02>header{margin-bottom:clamp(12px,2.4vh,26px)}
 #slide-02 .hf-flow{display:grid;gap:clamp(6px,1.1vh,10px)}
-#slide-02 .hf-row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(24px,.5fr) auto minmax(24px,.5fr) minmax(0,1.6fr);align-items:center;gap:12px}
+#slide-02 .hf-row{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1.05fr) minmax(0,1.3fr);align-items:center;gap:12px}
+#slide-02 .hf-head span{font:600 clamp(12px,.9vw,14px) var(--sans);color:#b4b9c1;letter-spacing:.03em}
+#slide-02 .hf-arrow{text-align:center;color:var(--muted);font-size:18px}
+#slide-02 .hf-out.md5{color:var(--a);border-color:#8aa9ff55;background:var(--a-wash)}
 #slide-02 .hf-in{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 14px;border:1px solid var(--line-2);background:var(--raised)}
 #slide-02 .hf-in b{font:500 clamp(15px,1.2vw,20px)/1.2 var(--sans);color:var(--paper);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #slide-02 .hf-in small{font:500 clamp(12px,.9vw,14px) var(--sans);color:var(--a);white-space:nowrap}
@@ -775,11 +778,12 @@ h2{font-size:32px}
 </section>
 <section class="slide" id="slide-02" hidden aria-label="Slide 2" data-section="Fundamentals">
 <header><div class="eyebrow">01 — Fundamentals</div><h2>How a Hash Function Works</h2><p class="lede">Any input, of any size, becomes a short fixed-size fingerprint called a digest.</p></header>
-<div class="hf-flow" role="img" aria-label="Three inputs of 1 byte, 15 bytes and 422,435 bytes all produce a 256-bit SHA-256 digest">
-<div class="hf-row"><span class="hf-in"><b>“a”</b><small>1 byte</small></span><span class="hf-line"></span><span class="hf-h">SHA-256</span><span class="hf-line"></span><code class="hf-out">ca978112ca1bbdcafac231b39a23dc4d…</code></div>
-<div class="hf-row"><span class="hf-in"><b>“Hash collisions”</b><small>15 bytes</small></span><span class="hf-line"></span><span class="hf-h">SHA-256</span><span class="hf-line"></span><code class="hf-out">5f7462412f94b551e74d9c60dd09191d…</code></div>
-<div class="hf-row"><span class="hf-in"><b>shattered-1.pdf</b><small>422,435 bytes</small></span><span class="hf-line"></span><span class="hf-h">SHA-256</span><span class="hf-line"></span><code class="hf-out">2bb787a73e37352f92383abe7e290293…</code></div>
-<p class="hf-len">Always 256 bits, whatever the input size.</p>
+<div class="hf-flow" role="img" aria-label="Inputs of 1 byte, 15 bytes and 422,435 bytes: MD5 always gives 128 bits and SHA-1 always gives 160 bits">
+<div class="hf-row hf-head"><span>Input</span><span></span><span>MD5 · 128 bits</span><span>SHA-1 · 160 bits</span></div>
+<div class="hf-row"><span class="hf-in"><b>“a”</b><small>1 byte</small></span><span class="hf-arrow">→</span><code class="hf-out md5">0cc175b9c0f1b6a831c399e269772661</code><code class="hf-out">86f7e437faa5a7fce15d1ddcb9eaeaea377667b8</code></div>
+<div class="hf-row"><span class="hf-in"><b>“Hash collisions”</b><small>15 bytes</small></span><span class="hf-arrow">→</span><code class="hf-out md5">eccb0b5296a08f880dc29973d4f0b479</code><code class="hf-out">d83b86371c6f72fd53d711dc58a285691c19eae9</code></div>
+<div class="hf-row"><span class="hf-in"><b>shattered-1.pdf</b><small>422,435 bytes</small></span><span class="hf-arrow">→</span><code class="hf-out md5">ee4aa52b139d925f8d8884402b0a750c</code><code class="hf-out">38762cf7f55934b34d179ae6a4c80cadccbb7f0a</code></div>
+<p class="hf-len">Same length every time: MD5 → 32 hex characters, SHA-1 → 40, whatever the input size.</p>
 </div>
 <ul class="hf-basics"><li><b>Deterministic</b>Same input → same digest</li><li><b>Fixed length</b>Any input → n bits</li><li><b>Fast</b>Cheap to compute</li><li><b>One-way</b>Hard to reverse</li></ul>
 <div class="hf-security"><p class="hf-sec-title">What makes a hash function <em>secure</em></p>
@@ -987,7 +991,7 @@ const notes = [
 `[0:30 · Μάριος — έναρξη] Σήμερα θα δούμε πώς δύο διαφορετικά αρχεία μπορούν να έχουν το ίδιο κρυπτογραφικό αποτύπωμα και γιατί αυτό μπορεί να επηρεάσει την εμπιστοσύνη σε ένα ολόκληρο σύστημα. Ξεκινάμε με λίγες βασικές έννοιες και περνάμε σε τρεις περιπτώσεις: το Flame, το SHAttered και το SHA-1 is a Shambles.
 
 Η διάκριση που θα κρατήσουμε σε όλη την παρουσίαση είναι ανάμεσα σε πραγματική κακόβουλη εκμετάλλευση και ερευνητική επίδειξη. Το Flame ανήκει στην πρώτη κατηγορία. Οι άλλες δύο περιπτώσεις αποδεικνύουν, με δημοσιευμένα πειράματα, τι μπορεί να συμβεί όταν ένα σύστημα στηρίζεται σε μια σπασμένη συνάρτηση κατακερματισμού.`,
-`[1:15 · Μάριος — από πάνω προς τα κάτω: παραδείγματα, βασικές ιδιότητες, ιδιότητες ασφάλειας] Μια συνάρτηση hash παίρνει δεδομένα οποιουδήποτε μεγέθους και δίνει μια σύνοψη, ένα digest, σταθερού μήκους. Στα τρία παραδείγματα το «a» είναι ένα byte, η φράση 15 bytes και το PDF πάνω από 400 χιλιάδες bytes, κι όμως ο SHA-256 δίνει πάντα 256 bits. Οι τιμές είναι πραγματικές. Είναι ντετερμινιστική, δηλαδή τα ίδια bytes δίνουν πάντα το ίδιο digest, υπολογίζεται γρήγορα, και είναι μονόδρομη: από το digest δεν μπορούμε να βρούμε την είσοδο. Επειδή οι πιθανές είσοδοι είναι άπειρες και τα digests πεπερασμένα, συγκρούσεις υπάρχουν πάντα· το ζητούμενο είναι να είναι πρακτικά αδύνατο να βρεθούν.
+`[1:15 · Μάριος — από πάνω προς τα κάτω: παραδείγματα, βασικές ιδιότητες, ιδιότητες ασφάλειας] Μια συνάρτηση hash παίρνει δεδομένα οποιουδήποτε μεγέθους και δίνει μια σύνοψη, ένα digest, σταθερού μήκους. Στα τρία παραδείγματα το «a» είναι ένα byte, η φράση 15 bytes και το PDF πάνω από 400 χιλιάδες bytes, κι όμως ο MD5 δίνει πάντα 128 bits, δηλαδή 32 δεκαεξαδικούς χαρακτήρες, και ο SHA-1 πάντα 160 bits, δηλαδή 40. Κρατήστε την τιμή του PDF, 38762cf7: θα την ξαναδούμε στο SHAttered, όπου ένα δεύτερο, διαφορετικό PDF δίνει ακριβώς την ίδια. Οι τιμές είναι πραγματικές. Είναι ντετερμινιστική, δηλαδή τα ίδια bytes δίνουν πάντα το ίδιο digest, υπολογίζεται γρήγορα, και είναι μονόδρομη: από το digest δεν μπορούμε να βρούμε την είσοδο. Επειδή οι πιθανές είσοδοι είναι άπειρες και τα digests πεπερασμένα, συγκρούσεις υπάρχουν πάντα· το ζητούμενο είναι να είναι πρακτικά αδύνατο να βρεθούν.
 
 Κάτω βλέπουμε τις τρεις ιδιότητες ασφάλειας, που διαφέρουν στο τι δίνεται από πριν. Preimage: μας δίνεται ένα hash και ψάχνουμε μήνυμα που το παράγει. Second preimage: μας δίνεται ένα συγκεκριμένο αρχείο και ψάχνουμε άλλο με το ίδιο hash, δηλαδή αντικατάσταση υπάρχοντος αρχείου. Collision: ο επιτιθέμενος επιλέγει και τα δύο μηνύματα, αρκεί να έχουν ίδιο hash.
 
