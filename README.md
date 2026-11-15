@@ -34,14 +34,14 @@ MD5 (slide 3) uses a local RFC 1321 implementation, because WebCrypto does not s
 | `Ctrl/⌘ + Shift + 1 / 2 / 3` | Flame / SHAttered / Shambles deep dives |
 | `Esc` | Close a dialog |
 
-On slides 5, 7, 8, 10 and 11 the arrow keys step through the timeline or the animated scenario first, then move to the next slide.
+On slides 5, 7, 8 and 10 the arrow keys step through the timeline or the animated scenario first, then move to the next slide.
 
 ## Structure (≈ 15–16 minutes)
 
 | # | Slide |
 |---|---|
 | 1 | Hash Collisions: From MD5 to SHA-1 |
-| 2 | How a hash function works (properties, preimage / second preimage / collision resistance) |
+| 2 | How a hash function works (properties; preimage / second preimage / collision resistance, compared visually) |
 | 3 | Avalanche effect: live MD5 / SHA-1 demo |
 | 4 | How hashing provides security |
 | 5 | From MD5 to SHA-1: evolution & security (timeline) |
@@ -49,10 +49,9 @@ On slides 5, 7, 8, 10 and 11 the arrow keys step through the timeline or the ani
 | 7 | Flame: the scenario step by step |
 | 8 | SHAttered (2017): inside SHA-1 |
 | 9 | Live verification of the SHAttered PDFs |
-| 10 | Integrity attack simulation |
-| 11 | SHA-1 is a Shambles (2020): forged PGP identity |
-| 12 | Defenses & modern alternatives |
-| 13 | Conclusions & references |
+| 10 | SHA-1 is a Shambles (2020): forged PGP identity |
+| 11 | Defenses & modern alternatives |
+| 12 | Conclusions & references |
 
 ## Sources
 
