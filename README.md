@@ -27,7 +27,6 @@ MD5 (slide 3) uses a local RFC 1321 implementation, because WebCrypto does not s
 | `←` `↑` | Previous slide or previous step |
 | `Home` / `End` | First / last slide |
 | `PageUp` / `PageDown` | Previous / next slide, skipping the steps |
-| `N` | Speaker notes (in Greek) |
 | `O` | Slide overview |
 | `F` | Full screen |
 | `?` | Help |
