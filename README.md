@@ -41,9 +41,9 @@ On slides 5, 7, 8, 10 and 11 the arrow keys step through the timeline or the ani
 | # | Slide |
 |---|---|
 | 1 | Hash Collisions: From MD5 to SHA-1 |
-| 2 | How hashing provides security |
+| 2 | How a hash function works (properties, preimage / second preimage / collision resistance) |
 | 3 | Avalanche effect: live MD5 / SHA-1 demo |
-| 4 | Collision vs preimage attacks |
+| 4 | How hashing provides security |
 | 5 | From MD5 to SHA-1: evolution & security (timeline) |
 | 6 | Flame (2012): a real-world MD5 attack |
 | 7 | Flame: the scenario step by step |
