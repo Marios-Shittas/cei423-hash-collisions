@@ -4,6 +4,8 @@ Interactive presentation for **CEI 423 — Introduction to Cryptography and Comp
 
 **Presenters:** Μάριος Σιήττας · Μπογκντάν Νεματζιόνοβ
 
+Link: https://marios-shittas.github.io/cei423-hash-collisions/hash-collisions-presentation.html
+
 The whole presentation is a single self-contained HTML file: [`hash-collisions-presentation.html`](hash-collisions-presentation.html). It also embeds the two original SHAttered PDFs, so it works offline.
 
 ## How to open
