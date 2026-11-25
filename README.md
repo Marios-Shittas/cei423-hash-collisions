@@ -30,10 +30,13 @@ MD5 (slide 3) uses a local RFC 1321 implementation, because WebCrypto does not s
 | `Home` / `End` | First / last slide |
 | `PageUp` / `PageDown` | Previous / next slide, skipping the steps |
 | `O` | Slide overview |
+| `Q` | QR code for the audience |
 | `F` | Full screen |
 | `?` | Help |
 | `Ctrl/⌘ + Shift + 1 / 2 / 3` | Flame / SHAttered / Shambles deep dives |
 | `Esc` | Close a dialog |
+
+The QR button next to the timer (or `Q`) shows a full-screen QR code so the audience can open the deck on their phones; `Esc` closes it.
 
 On slides 5, 7, 8 and 10 the arrow keys step through the timeline or the animated scenario first, then move to the next slide.
 
